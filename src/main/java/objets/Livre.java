@@ -1,4 +1,6 @@
-package test_jpa.jpa;
+package objets;
+
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -7,6 +9,7 @@ import javax.persistence.*;
 public class Livre {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int id;
 	
 	@Column(name="titre")
@@ -14,6 +17,9 @@ public class Livre {
 	
 	@Column(name="auteur")
 	String auteur;
+	
+	@ManyToMany (mappedBy="livres")
+	private Set<Emprunt> emprunts;
 	
 	public int getId() {
 		return this.id;
@@ -30,6 +36,6 @@ public class Livre {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "Livre "+getId()+" :  "+getTitre()+" redige par  "+getAuteur();
+		return "Livre "+getId()+" :  "+getTitre()+" redige par "+getAuteur();
 	}
 }

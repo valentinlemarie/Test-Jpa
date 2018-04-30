@@ -11,4 +11,15 @@
 			<property name="hibernate.show_sql" value="true" />
 		</properties>
 	</persistence-unit>
+	<persistence-unit name="pu_banque" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<properties>
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/banque?use_ssl=false" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver" />
+			<property name="hibernate.show_sql" value="true" />
+		</properties>
+	</persistence-unit>
 </persistence>
